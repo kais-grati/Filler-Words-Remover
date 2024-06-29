@@ -1,0 +1,9 @@
+pyqt5==5.15.10
+numpy==1.26.4
+openai-whisper==20231117
+moviepy==1.0.3
+
+--index-url https://download.pytorch.org/whl/cu121
+torch
+torchvision
+torchaudio

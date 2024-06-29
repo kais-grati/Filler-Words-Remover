@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>795</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Filler word remover</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMenuBar {
+    background-color: #25263a; /* Background color */
+    color: #ECF0F1; /* Text color */
+    border: 1px solid #2C3E50; /* Border color */
+    padding: 5px; /* Padding around the menu bar */
+}
+
+QMenuBar::item {
+    background-color: transparent;
+}
+
+QMenuBar::item:selected {
+    background-color: #2C3E50; /* Background color of selected item */
+}
+
+QMenuBar::item:pressed {
+    background-color: #1F2C38; /* Background color when item is pressed */
+}
+
+QStatusBar {
+    background-color: #25263a; /* Background color */
+    color: #ECF0F1; /* Text color */
+    border-top: 1px solid #34495E; /* Border color */
+    padding: 5px; /* Padding around the status bar */
+}
+
+QStatusBar::item {
+    background-color: transparent;
+}</string>
+  </property>
+  <widget class="QWidget" name="main_wrapper">
+   <property name="styleSheet">
+    <string notr="true">#main_wrapper{
+background-color: rgba(22,22,46,255)
+}
+QSpinBox {
+    border: 2px solid #4A90E2;  /* Outer border color */
+    border-radius: 5px;
+    padding: 1px;
+    background-color: #FFFFFF;  /* Spin box background color */
+    selection-background-color: #4A90E2;  /* Selection background color */
+    selection-color: #FFFFFF;  /* Selection text color */
+    min-width: 80px;
+}
+
+QSpinBox::up-button, QSpinBox::down-button {
+    width: 25px;  /* Width of the arrow buttons */
+    border: none;
+    background-color: #4A90E2;  /* Arrow buttons background color */
+    color: #FFFFFF;  /* Arrow buttons text color */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #357ABD;  /* Hover background color */
+}
+
+QSpinBox::up-button:pressed, QSpinBox::down-button:pressed {
+    background-color: #1E499D;  /* Pressed background color */
+}
+
+QDoubleSpinBox {
+    border: 2px solid #4A90E2;  /* Outer border color */
+    border-radius: 5px;
+    padding: 1px;
+    background-color: #FFFFFF;  /* Spin box background color */
+    selection-background-color: #4A90E2;  /* Selection background color */
+    selection-color: #FFFFFF;  /* Selection text color */
+    min-width: 100px;
+}
+
+QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
+    width: 25px;  /* Width of the arrow buttons */
+    border: none;
+    background-color: #4A90E2;  /* Arrow buttons background color */
+    color: #FFFFFF;  /* Arrow buttons text color */
+}
+
+QDoubleSpinBox::up-button:hover, QDoubleSpinBox::down-button:hover {
+    background-color: #357ABD;  /* Hover background color */
+}
+
+QDoubleSpinBox::up-button:pressed, QDoubleSpinBox::down-button:pressed {
+    background-color: #1E499D;  /* Pressed background color */
+}
+
+</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="header" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">.QPushButton{
+border-radius: 10px;
+border: none;
+background-color: #6641cd;
+padding: 10px;
+color: white;
+font-size: 17px;
+}
+
+.QPushButton:hover{
+background-color: #3fa4da
+}</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="import_button">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Import</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="play_word_button">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>Play word</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="remove_word_button">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>Remove word</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="date_controls" native="true">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">.QLabel{
+color: white
+}</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="start_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Start:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="start_entry">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="maximum">
+             <double>3599.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="end_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>End:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="end_entry">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="maximum">
+             <double>3600.989999999999782</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="body" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">.QPushButton{
+border-radius: 10px;
+border: none;
+padding: 10px;
+background-color: none;
+color: white;
+font-size: 15px;
+}
+
+.QPushButton:hover{
+color: #e83259
+}</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="animation_wrapper" native="true"/>
+    </item>
+    <item>
+     <widget class="QWidget" name="footer" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>120</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">.QPushButton{
+border-radius: 10px;
+border: none;
+background-color: #e83259;
+padding: 10px;
+color: white;
+font-size: 17px;
+}
+
+.QPushButton:hover{
+background-color: #6c70b4
+}
+
+#footer{
+background-color: #757496
+}</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="play_track_button">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Play/Pause</string>
+         </property>
+         <property name="icon">
+          <iconset resource="ressource.qrc">
+           <normaloff>:/icons/icons/play-circle.svg</normaloff>:/icons/icons/play-circle.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="position_widgets" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QWidget" name="position_entries" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QSpinBox" name="min_entry">
+               <property name="minimumSize">
+                <size>
+                 <width>86</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>20</pointsize>
+                </font>
+               </property>
+               <property name="maximum">
+                <number>59</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="sec_entry">
+               <property name="minimumSize">
+                <size>
+                 <width>86</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>20</pointsize>
+                </font>
+               </property>
+               <property name="maximum">
+                <number>59</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="ms_entry">
+               <property name="minimumSize">
+                <size>
+                 <width>86</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>20</pointsize>
+                </font>
+               </property>
+               <property name="maximum">
+                <number>999</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="position_slider">
+            <property name="maximumSize">
+             <size>
+              <width>400</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="export_button">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>Export</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <widget class="QMenu" name="menuTranscript_quality">
+     <property name="title">
+      <string>Transcript quality</string>
+     </property>
+     <addaction name="set_model_high"/>
+     <addaction name="set_model_medium"/>
+     <addaction name="set_model_low"/>
+    </widget>
+    <widget class="QMenu" name="menuDevice">
+     <property name="title">
+      <string>Device</string>
+     </property>
+     <addaction name="set_device_gpu"/>
+     <addaction name="set_device_cpu"/>
+    </widget>
+    <addaction name="menuTranscript_quality"/>
+    <addaction name="menuDevice"/>
+   </widget>
+   <addaction name="menuSettings"/>
+  </widget>
+  <widget class="QStatusBar" name="status_bar"/>
+  <action name="set_model_high">
+   <property name="text">
+    <string>High (default)</string>
+   </property>
+  </action>
+  <action name="set_model_medium">
+   <property name="text">
+    <string>Medium</string>
+   </property>
+  </action>
+  <action name="set_model_low">
+   <property name="text">
+    <string>Low</string>
+   </property>
+  </action>
+  <action name="set_device_gpu">
+   <property name="text">
+    <string>GPU (default)</string>
+   </property>
+  </action>
+  <action name="set_device_cpu">
+   <property name="text">
+    <string>CPU</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="ressource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
