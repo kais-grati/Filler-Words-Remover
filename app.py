@@ -21,7 +21,7 @@ class MyApp(QtWidgets.QMainWindow):
         self.stop_at = None
         self.filepath = None
         self.default_model = "large"
-        self.default_device = "cuda"
+        self.default_device = "cpu"
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.check_skip)

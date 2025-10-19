@@ -13,7 +13,7 @@ def run_whisper(file_path, device, model):
 
     model = whisper.load_model(name=model, device=device)
 
-    result = model.transcribe(audio, initial_prompt="Ne supprime pas les mots vides comme les euh. Inclus les dans la transcription finale", word_timestamps=True, language='fr', fp16=False)
+    result = model.transcribe(audio, initial_prompt="Please transcribe the audio exactly as spoken, including all filler words and verbal hesitations such as 'uh,' 'um,' 'er,' 'ah,' 'like,' 'you know,' 'so,' 'well,' and similar expressions. Do not remove or clean up these natural speech patterns. Preserve all pauses, repetitions, and conversational elements to maintain an accurate representation of the original speech.", word_timestamps=True, language='en', fp16=False)
 
     # with open("test.json", "r") as file:
     #     result = json.load(file)

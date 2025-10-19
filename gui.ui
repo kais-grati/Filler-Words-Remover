@@ -547,12 +547,12 @@ background-color: #757496
   </action>
   <action name="set_device_gpu">
    <property name="text">
-    <string>GPU (default)</string>
+    <string>GPU</string>
    </property>
   </action>
   <action name="set_device_cpu">
    <property name="text">
-    <string>CPU</string>
+    <string>CPU (default)</string>
    </property>
   </action>
  </widget>
